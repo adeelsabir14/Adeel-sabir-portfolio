@@ -36,7 +36,7 @@ export default function Contact() {
       icon: Linkedin,
       label: "LinkedIn",
       value: "Visit Profile",
-      href: "https://www.linkedin.com/in/adeel-sabir-93b189363/",
+      href: "https://www.linkedin.com/in/adeelsabir01",
       color: "from-blue-500 to-cyan-500",
       external: true,
     },
