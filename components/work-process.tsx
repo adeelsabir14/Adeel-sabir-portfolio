@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import { Figma, Code2, Zap, CheckCircle2, Users, Lightbulb } from "lucide-react"
 
 export default function WorkProcess() {
@@ -59,7 +59,7 @@ export default function WorkProcess() {
     },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,

@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import { Mail, Linkedin, Github, ExternalLink } from "lucide-react"
 
 export default function Contact() {
@@ -15,7 +15,7 @@ export default function Contact() {
     },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,

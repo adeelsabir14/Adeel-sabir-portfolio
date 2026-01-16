@@ -1,7 +1,7 @@
 "use client"
 
 import { ArrowRight, Download, Sparkles } from "lucide-react"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import { useEffect, useState } from "react"
 import { TextGenerateEffect } from "./aceternity/text-generate-effect"
 import { SilkBackground } from "./aceternity/silk-background"
@@ -36,7 +36,7 @@ export default function Hero() {
     },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
