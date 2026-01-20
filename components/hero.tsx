@@ -1,29 +1,33 @@
-"use client"
+"use client";
 
-import { ArrowRight, Download, Sparkles } from "lucide-react"
-import { motion, Variants } from "framer-motion"
-import { useEffect, useState } from "react"
-import { TextGenerateEffect } from "./aceternity/text-generate-effect"
-import { SilkBackground } from "./aceternity/silk-background"
+import { ArrowRight, Download, Sparkles } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+import { useEffect, useState } from "react";
+import { TextGenerateEffect } from "./aceternity/text-generate-effect";
+import { SilkBackground } from "./aceternity/silk-background";
 
 export default function Hero() {
-  const [isMobile, setIsMobile] = useState(false)
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+  const [isMobile, setIsMobile] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768)
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
-    setPrefersReducedMotion(mediaQuery.matches)
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
 
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-    mediaQuery.addEventListener("change", (e) => setPrefersReducedMotion(e.matches))
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    mediaQuery.addEventListener("change", (e) =>
+      setPrefersReducedMotion(e.matches),
+    );
 
     return () => {
-      window.removeEventListener("resize", checkMobile)
-      mediaQuery.removeEventListener("change", (e) => setPrefersReducedMotion(e.matches))
-    }
-  }, [])
+      window.removeEventListener("resize", checkMobile);
+      mediaQuery.removeEventListener("change", (e) =>
+        setPrefersReducedMotion(e.matches),
+      );
+    };
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -34,7 +38,7 @@ export default function Hero() {
         delayChildren: prefersReducedMotion ? 0 : 0.2,
       },
     },
-  }
+  };
 
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
@@ -43,7 +47,7 @@ export default function Hero() {
       y: 0,
       transition: { duration: prefersReducedMotion ? 0 : 0.8, ease: "easeOut" },
     },
-  }
+  };
 
   const floatingVariants = {
     animate: {
@@ -54,7 +58,7 @@ export default function Hero() {
         ease: "easeInOut",
       },
     },
-  }
+  };
 
   return (
     <SilkBackground>
@@ -63,7 +67,10 @@ export default function Hero() {
         id="main-content"
       >
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" aria-hidden="true" />
+          <div
+            className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+            aria-hidden="true"
+          />
           <div
             className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"
             aria-hidden="true"
@@ -112,7 +119,10 @@ export default function Hero() {
             />
           </motion.div>
 
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+          >
             <motion.a
               href="#process"
               className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-lg font-medium hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
@@ -123,18 +133,21 @@ export default function Hero() {
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </motion.a>
             <motion.a
-              href="/api/resume"
-              download="Adeel_Sabir_Resume.txt"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-primary/50 rounded-lg font-medium hover:bg-primary/10 hover:border-primary transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              href="/Adeel_Sabir_Resume.pdf"
+              download="Adeel_Sabir_Resume.pdf"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-primary/50 rounded-lg font-medium hover:bg-primary/10 hover:border-primary transition-all"
               whileHover={prefersReducedMotion ? {} : { scale: 1.05, y: -2 }}
               whileTap={prefersReducedMotion ? {} : { scale: 0.95 }}
             >
               Download Resume
-              <Download className="w-4 h-4" aria-hidden="true" />
+              <Download className="w-4 h-4" />
             </motion.a>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+          <motion.div
+            variants={itemVariants}
+            className="grid grid-cols-3 gap-8 max-w-2xl mx-auto"
+          >
             {[
               { value: "1+", label: "Years Experience" },
               { value: "5", label: "Projects Completed" },
@@ -149,16 +162,22 @@ export default function Hero() {
                 <motion.div
                   className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
                   animate={prefersReducedMotion ? {} : { scale: [1, 1.05, 1] }}
-                  transition={{ duration: 2, delay: idx * 0.2, repeat: Number.POSITIVE_INFINITY }}
+                  transition={{
+                    duration: 2,
+                    delay: idx * 0.2,
+                    repeat: Number.POSITIVE_INFINITY,
+                  }}
                 >
                   {stat.value}
                 </motion.div>
-                <div className="text-sm text-muted-foreground mt-2">{stat.label}</div>
+                <div className="text-sm text-muted-foreground mt-2">
+                  {stat.label}
+                </div>
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
       </section>
     </SilkBackground>
-  )
+  );
 }

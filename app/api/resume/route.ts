@@ -1,24 +1,18 @@
 import { NextResponse } from "next/server"
 
 export async function GET() {
-  try {
-    const resumeContent = `
+  const resumeText = `
 ADEEL SABIR
-Web UI Developer
-adeel.sabir@gmail.com
-    `
+MERN Stack & UI Developer
+Email: adeel.sabir@gmail.com
+Experience: 1 Year
+Skills: React, Next.js, Angular, Node.js
+`
 
-    // Create a simple text-based response that can be downloaded as a file
-    const headers = new Headers()
-    headers.set("Content-Type", "text/plain; charset=utf-8")
-    headers.set("Content-Disposition", 'attachment; filename="Adeel_Sabi_Resume.txt"')
-
-    return new NextResponse(resumeContent, {
-      status: 200,
-      headers,
-    })
-  } catch (error) {
-    console.error("Error generating resume:", error)
-    return NextResponse.json({ error: "Failed to generate resume" }, { status: 500 })
-  }
+  return new NextResponse(resumeText, {
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Content-Disposition": 'attachment; filename="Adeel_Sabir_Resume.txt"',
+    },
+  })
 }

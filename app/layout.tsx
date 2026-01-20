@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "Adeel Sabir",
     "Full Stack Developer",
   ],
-  generator: "v0.app",
+  generator: "AS Portfolio",
   openGraph: {
     title: "Adeel Sabir | MERN Stack Developer & UI Developer",
     description:
@@ -63,7 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-L3XQRP3SR9" />
+        {/* <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-L3XQRP3SR9" /> */}
         <Script
           id="google-analytics"
           strategy="afterInteractive"
