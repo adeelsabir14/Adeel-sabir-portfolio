@@ -20,7 +20,7 @@ export default function Skills() {
     {
       title: "Backend & Tools",
       icon: Database,
-      skills: ["Node.js", "REST APIs", "Git", "C++", "Redux", "Context API", "Redux Toolkit"],
+      skills: [".Net","Node.js", "REST APIs", "Git", "C++", "Redux", "Context API", "Redux Toolkit","C#"],
       color: "from-orange-500 to-red-500",
     },
     {

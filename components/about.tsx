@@ -86,23 +86,40 @@ export default function About() {
 
           <motion.div variants={itemVariants} className="mb-16 max-w-3xl">
             <p className="text-xl text-muted-foreground leading-relaxed mb-6">
-              I'm a passionate <span className="font-semibold text-foreground">MERN Stack Developer</span> with{" "}
-              <span className="font-semibold text-foreground">1 year of professional experience</span> in creating
-              high-performance web applications. My expertise spans React, Angular, Next.js, Node.js, and modern web
-              technologies, with a strong focus on responsive UI/UX design and state management.
+              I'm a passionate{" "}
+              <span className="font-semibold text-foreground">
+                Full-Stack Developer (.NET & Modern Frontend)
+              </span>{" "}
+              with{" "}
+              <span className="font-semibold text-foreground">
+                4+ years of professional experience
+              </span>{" "}
+              in building scalable, high-performance web applications. My expertise includes
+              React, Angular, Next.js, and .NET (C#), along with modern web technologies,
+              with a strong focus on responsive UI/UX design, performance optimization,
+              and efficient state management.
             </p>
+
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              At <span className="font-semibold text-foreground">Invobyte</span>, I'm currently leading a development
-              team and have successfully completed <span className="font-semibold text-foreground">5 projects</span>,
-              including e-commerce platforms, complaint management systems, and document archive solutions. I'm
-              passionate about solving complex problems, writing clean code, and collaborating with talented teams to
-              deliver exceptional user experiences.
+              At{" "}
+              <span className="font-semibold text-foreground">Invobyte</span>, I am currently
+              leading a development team and have successfully delivered{" "}
+              <span className="font-semibold text-foreground">multiple enterprise-level projects</span>,
+              including e-commerce platforms, complaint management systems, and document
+              archive solutions. I am passionate about solving complex problems, writing
+              clean and maintainable code, and collaborating with teams to deliver reliable
+              and user-friendly software solutions.
             </p>
+
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Beyond development, I believe in{" "}
-              <span className="font-semibold text-foreground">continuous learning</span> and staying updated with the
-              latest technologies and industry trends. I'm excited about building scalable applications and exploring
-              new opportunities in full-stack development.
+              Beyond development, I strongly believe in{" "}
+              <span className="font-semibold text-foreground">
+                continuous learning
+              </span>{" "}
+              and staying updated with the latest technologies and industry best practices.
+              I am enthusiastic about building secure, scalable full-stack applications
+              and continuously exploring innovative tools and techniques to improve
+              performance, scalability, and overall user experience.
             </p>
           </motion.div>
 
@@ -128,7 +145,7 @@ export default function About() {
                   link: "tel:+923039676205",
                   icon: <Phone size={24} strokeWidth={1.5} />,
                 },
-                { label: "Experience", value: "1+ Years", icon: <Clock size={24} strokeWidth={1.5} /> },
+                { label: "Experience", value: "4+ Years", icon: <Clock size={24} strokeWidth={1.5} /> },
               ].map((item, idx) => (
                 <motion.div
                   key={idx}

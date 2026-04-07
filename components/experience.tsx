@@ -21,20 +21,6 @@ export default function Experience() {
       ],
     },
     {
-      title: "Web Developer Trainee",
-      company: "InventStart",
-      period: "3 Months",
-      location: "Pakistan",
-      highlights: [
-        "Completed intensive web development training with hands-on projects",
-        "Learned and implemented responsive web design principles",
-        "Developed full-stack web applications using HTML5, CSS3, and JavaScript",
-        "Worked with frontend frameworks and modern development tools",
-        "Collaborated with team members on real-world project scenarios",
-        "Gained expertise in version control and collaborative development",
-      ],
-    },
-    {
       title: "Frontend Developer",
       company: "Visiomate",
       period: "Recent Experience",

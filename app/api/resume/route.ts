@@ -3,9 +3,9 @@ import { NextResponse } from "next/server"
 export async function GET() {
   const resumeText = `
 ADEEL SABIR
-MERN Stack & UI Developer
+Full Stack & UI Developer
 Email: adeel.sabir@gmail.com
-Experience: 1 Year
+Experience: 4+ Year
 Skills: React, Next.js, Angular, Node.js
 `
 

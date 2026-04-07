@@ -8,11 +8,11 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Adeel Sabir | MERN Stack Developer & UI Developer | Portfolio",
+  title: "Adeel Sabir | Full Stack Developer & UI Developer | Portfolio",
   description:
-    "MERN Stack Developer with 1 year of experience specializing in React, Angular, Next.js, and Node.js. Expert in frontend development, state management, and responsive UI design. Currently leading a team at Invobyte.",
+    "Full Stack Developer with 4+ year of experience specializing in React, Angular, Next.js, and Node.js. Expert in frontend development, state management, and responsive UI design. Currently leading a team at Invobyte.",
   keywords: [
-    "MERN Stack Developer",
+    "Full",
     "React Developer",
     "Frontend Engineer",
     "Next.js",
@@ -27,17 +27,17 @@ export const metadata: Metadata = {
   ],
   generator: "AS Portfolio",
   openGraph: {
-    title: "Adeel Sabir | MERN Stack Developer & UI Developer",
+    title: "Adeel Sabir | Full Stack Developer & UI Developer",
     description:
-      "MERN Stack Developer with 1 year of experience at Invobyte, specializing in React, Angular, Next.js, and Node.js.",
+      "Full Stack Developer with 4+ year of experience at Invobyte, specializing in React, Angular, Next.js, and Node.js.",
     type: "website",
     locale: "en_US",
     url: "https://adeelsabir.com",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Adeel Sabir | MERN Stack Developer & UI Developer",
-    description: "MERN Stack Developer with expertise in React, Angular, Next.js, Node.js, and responsive web design.",
+    title: "Adeel Sabir | Full Stack Developer & UI Developer",
+    description: "Full Stack Developer with expertise in React, Angular, Next.js, Node.js, and responsive web design.",
   },
   alternates: {
     canonical: "https://adeelsabir.com",
@@ -87,7 +87,7 @@ export default function RootLayout({
               "@type": "Person",
               name: "Adeel Sabir",
               url: "https://adeelsabir.com",
-              jobTitle: "MERN Stack Developer",
+              jobTitle: "Full Stack Developer",
               email: "adeelwork14@gmail.com",
               telephone: "+923039676205",
               address: {

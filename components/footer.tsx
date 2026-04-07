@@ -83,9 +83,10 @@ export default function Footer() {
             <h3 className="font-bold mb-4">Skills</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>React & Angular</li>
+              <li>.Net</li>
               <li>Next.js & Node.js</li>
               <li>Tailwind CSS & Bootstrap</li>
-              <li>MERN Stack Development</li>
+              <li>Full Stack Development</li>
             </ul>
           </div>
           <div>

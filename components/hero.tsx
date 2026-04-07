@@ -107,12 +107,12 @@ export default function Hero() {
             variants={itemVariants}
             className="text-xl sm:text-2xl text-muted-foreground mb-4 text-balance font-semibold"
           >
-            MERN Stack Developer & UI Developer
+            Full-Stack Developer
           </motion.p>
 
           <motion.div variants={itemVariants} className="mb-12">
             <TextGenerateEffect
-              words="1 year of experience transforming ideas into high-performance web applications. Specialized in React, Angular, Next.js, Node.js, and creating responsive, modern interfaces. Currently leading a team at Invobyte."
+              words="I am a full-stack developer with 4+ year's of experience building high-performance, scalable web applications. I specialize in React, Angular, Next.js, and .NET for backend development, creating responsive, modern user interfaces, and delivering seamless user experiences. Currently, I lead a development team at Invobyte, turning ideas into robust web solutions."
               className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance leading-relaxed"
               duration={0.05}
               filter={true}
@@ -149,9 +149,9 @@ export default function Hero() {
             className="grid grid-cols-3 gap-8 max-w-2xl mx-auto"
           >
             {[
-              { value: "1+", label: "Years Experience" },
-              { value: "5", label: "Projects Completed" },
-              { value: "1", label: "Team Leading" },
+              { value: "4+", label: "Years Experience" },
+              { value: "15", label: "Projects Completed" },
+              { value: "4", label: "Team Leading" },
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
