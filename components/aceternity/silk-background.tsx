@@ -12,13 +12,12 @@ export const SilkBackground = ({
   className?: string
 }) => {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [isMobile, setIsMobile] = useState(false)
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+  const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" && window.innerWidth < 768)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches)
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
-    setPrefersReducedMotion(mediaQuery.matches)
 
     checkMobile()
     window.addEventListener("resize", checkMobile)

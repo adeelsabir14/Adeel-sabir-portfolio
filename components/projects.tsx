@@ -1,141 +1,15 @@
 "use client"
 
-import { ExternalLink, Github } from "lucide-react"
 import { motion } from "framer-motion"
-import { AnimatedCard } from "./aceternity/animated-card"
+import { ArrowUpRight } from "lucide-react"
+
+const projects = [
+  { number: "01", title: "DYDO Beverage Commerce", type: "E-commerce platform", description: "A conversion-focused shopping experience with product discovery, cart flows, and a responsive checkout journey.", stack: "React · Redux Toolkit · Tailwind · Node.js" },
+  { number: "02", title: "Complaint Management System", type: "Operations product", description: "A clear, trackable workflow for customer complaints, internal ownership, status updates, and resolution reporting.", stack: "React · Redux · REST APIs · Node.js" },
+  { number: "03", title: "E-Document Archive", type: "Enterprise system", description: "A structured document workspace with fast search, categorization, and secure file management for growing teams.", stack: "Next.js · React · Node.js · State management" },
+  { number: "04", title: "Technical Service Portal", type: "Service experience", description: "A mobile-first service request platform that gives customers visibility from submission through completion.", stack: "React · Angular · JavaScript · CSS" },
+]
 
 export default function Projects() {
-  const projects = [
-    {
-      title: "DYDO Beverage E-Commerce Platform",
-      description:
-        "Full-featured e-commerce platform for beverage shopping with product catalog, shopping cart, and seamless checkout flow.",
-      technologies: ["React", "Redux Toolkit", "Tailwind CSS", "Node.js", "REST APIs"],
-      link: "#",
-      github: "#",
-      gradient: "from-blue-500 to-cyan-500",
-    },
-    {
-      title: "Complaint Management System (CMS)",
-      description:
-        "Dynamic complaint tracking system enabling customers to submit complaints and admins to manage and resolve them efficiently.",
-      technologies: ["React", "Redux", "Node.js", "JavaScript", "REST APIs"],
-      link: "#",
-      github: "#",
-      gradient: "from-purple-500 to-pink-500",
-    },
-    {
-      title: "E-Document Archive System",
-      description:
-        "Comprehensive document management system with advanced search, file categorization, and secure storage capabilities.",
-      technologies: ["React", "Next.js", "Node.js", "Tailwind CSS", "State Management"],
-      link: "#",
-      github: "#",
-      gradient: "from-green-500 to-emerald-500",
-    },
-    {
-      title: "Technical Service Website",
-      description:
-        "Service request submission platform with real-time status tracking and responsive mobile-first design for service management.",
-      technologies: ["React", "Angular", "HTML5", "CSS3", "JavaScript"],
-      link: "#",
-      github: "#",
-      gradient: "from-orange-500 to-red-500",
-    },
-    {
-      title: "Responsive Web Redesign",
-      description:
-        "Complete redesign and modernization of web interfaces with focus on user experience, accessibility, and performance optimization.",
-      technologies: ["React", "Tailwind CSS", "JavaScript", "Responsive Design", "UI/UX"],
-      link: "#",
-      github: "#",
-      gradient: "from-indigo-500 to-blue-500",
-    },
-    {
-      title: "API Integration & State Management",
-      description:
-        "Robust RESTful API integration with Redux and Context API for efficient state handling and data synchronization across applications.",
-      technologies: ["React", "Redux", "Context API", "REST APIs", "Node.js"],
-      link: "#",
-      github: "#",
-      gradient: "from-teal-500 to-cyan-500",
-    },
-  ]
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30">
-      <div className="max-w-6xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl font-bold mb-12 text-balance"
-        >
-          Featured Projects
-        </motion.h2>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {projects.map((project, idx) => (
-            <AnimatedCard key={project.title} className="h-full">
-              <div className="group relative p-6 bg-card rounded-lg border border-border hover:border-primary transition-all hover:shadow-xl h-full overflow-hidden">
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
-                />
-
-                <div className="relative z-10">
-                  <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
-
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.technologies.map((tech) => (
-                      <motion.span
-                        key={tech}
-                        whileHover={{ scale: 1.05 }}
-                        className="px-2 py-1 bg-primary/10 text-primary text-xs rounded font-medium hover:bg-primary/20 transition-colors"
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
-                  </div>
-
-                  <div className="flex gap-3">
-                    <motion.a
-                      whileHover={{ x: 4 }}
-                      href={project.link}
-                      className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all"
-                    >
-                      View Live
-                      <ExternalLink className="w-4 h-4" />
-                    </motion.a>
-                    <motion.a
-                      whileHover={{ scale: 1.1 }}
-                      href={project.github}
-                      className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      <Github className="w-4 h-4" />
-                    </motion.a>
-                  </div>
-                </div>
-              </div>
-            </AnimatedCard>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  )
+  return <section id="projects" className="border-t border-border px-4 py-24 sm:px-6 lg:px-8"><div className="mx-auto max-w-6xl"><div className="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-primary">Selected work</p><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">Projects with a point of view.</h2></div><p className="max-w-sm text-sm leading-6 text-muted-foreground">A selection of platforms and products where thoughtful interfaces meet practical engineering.</p></div><div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2">{projects.map((project, index) => <motion.article key={project.number} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.06 }} className="group bg-card p-6 transition-colors hover:bg-secondary/60 sm:p-8"><div className="flex items-start justify-between"><span className="font-mono text-xs text-primary">{project.number}</span><ArrowUpRight className="text-muted-foreground transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-primary" aria-hidden="true" /></div><p className="mt-16 text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">{project.type}</p><h3 className="mt-3 text-2xl font-semibold tracking-tight">{project.title}</h3><p className="mt-4 max-w-md leading-7 text-muted-foreground">{project.description}</p><p className="mt-7 border-t border-border pt-4 font-mono text-xs text-primary">{project.stack}</p></motion.article>)}</div></div></section>
 }

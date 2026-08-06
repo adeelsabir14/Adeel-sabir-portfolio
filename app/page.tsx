@@ -1,46 +1,42 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import Header from "@/components/header"
 import Hero from "@/components/hero"
+import Projects from "@/components/projects"
 import About from "@/components/about"
 import Skills from "@/components/skills"
 import WorkProcess from "@/components/work-process"
 import Experience from "@/components/experience"
+import Testimonials from "@/components/testimonials"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 
 export default function Home() {
-  const [isDark, setIsDark] = useState(false)
+  const [isDark, setIsDark] = useState(() => typeof window !== "undefined" && localStorage.getItem("darkMode") === "true")
 
   useEffect(() => {
-    const isDarkMode = localStorage.getItem("darkMode") === "true"
-    setIsDark(isDarkMode)
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark")
-    }
-  }, [])
+    document.documentElement.classList.toggle("dark", isDark)
+  }, [isDark])
 
   const toggleDarkMode = () => {
-    const newDarkMode = !isDark
-    setIsDark(newDarkMode)
-    localStorage.setItem("darkMode", String(newDarkMode))
-    if (newDarkMode) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-    }
+    const next = !isDark
+    setIsDark(next)
+    localStorage.setItem("darkMode", String(next))
+    document.documentElement.classList.toggle("dark", next)
   }
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header isDark={isDark} toggleDarkMode={toggleDarkMode} />
-      <main>
+      <main id="main-content">
         <Hero />
+        <Projects />
         <About />
         <Skills />
         <WorkProcess />
         <Experience />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />

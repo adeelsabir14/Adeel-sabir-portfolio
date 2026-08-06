@@ -1,183 +1,21 @@
-"use client";
+"use client"
 
-import { ArrowRight, Download, Sparkles } from "lucide-react";
-import { motion, Variants } from "framer-motion";
-import { useEffect, useState } from "react";
-import { TextGenerateEffect } from "./aceternity/text-generate-effect";
-import { SilkBackground } from "./aceternity/silk-background";
+import { ArrowDownRight, ArrowRight, Download } from "lucide-react"
+import { motion } from "framer-motion"
 
 export default function Hero() {
-  const [isMobile, setIsMobile] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mediaQuery.matches);
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    mediaQuery.addEventListener("change", (e) =>
-      setPrefersReducedMotion(e.matches),
-    );
-
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-      mediaQuery.removeEventListener("change", (e) =>
-        setPrefersReducedMotion(e.matches),
-      );
-    };
-  }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: prefersReducedMotion ? 0 : 0.1,
-        delayChildren: prefersReducedMotion ? 0 : 0.2,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: prefersReducedMotion ? 0 : 0.8, ease: "easeOut" },
-    },
-  };
-
-  const floatingVariants = {
-    animate: {
-      y: [0, -20, 0],
-      transition: {
-        duration: 4,
-        repeat: Number.POSITIVE_INFINITY,
-        ease: "easeInOut",
-      },
-    },
-  };
-
-  return (
-    <SilkBackground>
-      <section
-        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 relative overflow-hidden"
-        id="main-content"
-      >
-        <div className="absolute inset-0 -z-10">
-          <div
-            className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
-            aria-hidden="true"
-          />
-          <div
-            className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"
-            aria-hidden="true"
-          />
-        </div>
-
-        <motion.div
-          className="max-w-4xl mx-auto text-center relative z-10"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div variants={itemVariants} className="mb-6 inline-block">
-            <motion.div
-              className="px-4 py-2 bg-gradient-to-r from-primary/20 to-accent/20 text-primary rounded-full text-sm font-medium border border-primary/30 flex items-center gap-2"
-              animate={prefersReducedMotion ? {} : { scale: [1, 1.05, 1] }}
-              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-            >
-              <Sparkles className="w-4 h-4" aria-hidden="true" />
-              Welcome to my portfolio
-            </motion.div>
-          </motion.div>
-
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-balance leading-tight"
-          >
-            <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
-              Adeel Sabir
-            </span>
-          </motion.h1>
-
-          <motion.p
-            variants={itemVariants}
-            className="text-xl sm:text-2xl text-muted-foreground mb-4 text-balance font-semibold"
-          >
-            Full-Stack Developer
-          </motion.p>
-
-          <motion.div variants={itemVariants} className="mb-12">
-            <TextGenerateEffect
-              words="I am a full-stack developer with 4+ year's of experience building high-performance, scalable web applications. I specialize in React, Angular, Next.js, and .NET for backend development, creating responsive, modern user interfaces, and delivering seamless user experiences. Currently, I lead a development team at Invobyte, turning ideas into robust web solutions."
-              className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance leading-relaxed"
-              duration={0.05}
-              filter={true}
-            />
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
-          >
-            <motion.a
-              href="#process"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-lg font-medium hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-              whileHover={prefersReducedMotion ? {} : { scale: 1.05, y: -2 }}
-              whileTap={prefersReducedMotion ? {} : { scale: 0.95 }}
-            >
-              View My Work
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </motion.a>
-            <motion.a
-              href="/Adeel_Sabir_Resume.pdf"
-              download="Adeel_Sabir_Resume.pdf"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-primary/50 rounded-lg font-medium hover:bg-primary/10 hover:border-primary transition-all"
-              whileHover={prefersReducedMotion ? {} : { scale: 1.05, y: -2 }}
-              whileTap={prefersReducedMotion ? {} : { scale: 0.95 }}
-            >
-              Download Resume
-              <Download className="w-4 h-4" />
-            </motion.a>
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-3 gap-8 max-w-2xl mx-auto"
-          >
-            {[
-              { value: "4+", label: "Years Experience" },
-              { value: "15", label: "Projects Completed" },
-              { value: "4", label: "Team Leading" },
-            ].map((stat, idx) => (
-              <motion.div
-                key={idx}
-                variants={itemVariants}
-                whileHover={prefersReducedMotion ? {} : { scale: 1.1 }}
-                className="p-4 rounded-lg bg-card border border-border/50 hover:border-primary transition-colors"
-              >
-                <motion.div
-                  className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
-                  animate={prefersReducedMotion ? {} : { scale: [1, 1.05, 1] }}
-                  transition={{
-                    duration: 2,
-                    delay: idx * 0.2,
-                    repeat: Number.POSITIVE_INFINITY,
-                  }}
-                >
-                  {stat.value}
-                </motion.div>
-                <div className="text-sm text-muted-foreground mt-2">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-      </section>
-    </SilkBackground>
-  );
+  return <section id="main-content" className="relative overflow-hidden px-4 pb-20 pt-24 sm:px-6 sm:pt-32 lg:px-8 lg:pb-28">
+    <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
+      <motion.div initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }}>
+        <p className="mb-7 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-primary"><span className="size-2 rounded-full bg-primary" aria-hidden="true" />Available for selected projects</p>
+        <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-7xl lg:text-8xl">Building digital products that <span className="text-primary">move businesses forward.</span></h1>
+        <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">I&apos;m Adeel Sabir, a full-stack developer and team lead creating fast, accessible web experiences with React, Next.js, Angular, and .NET.</p>
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row"><a href="#projects" className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">Explore selected work <ArrowRight data-icon="inline-end" /></a><a href="/Adeel_Sabir_Resume.pdf" download="Adeel_Sabir_Resume.pdf" className="inline-flex items-center justify-center gap-2 rounded-md border border-border px-6 py-3 font-medium transition-colors hover:bg-secondary"><Download data-icon="inline-start" />Download résumé</a></div>
+      </motion.div>
+      <motion.aside initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.65 }} className="border-l-2 border-primary pl-6 lg:mb-2">
+        <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">The short version</p><p className="mt-5 text-2xl font-medium leading-9">Strategy-minded engineering, obsessive attention to UI, and shipping habits you can rely on.</p><a href="#about" className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-primary">More about my approach <ArrowDownRight data-icon="inline-end" /></a>
+      </motion.aside>
+    </div>
+    <div className="mx-auto mt-20 grid max-w-6xl grid-cols-2 border-y border-border py-6 sm:grid-cols-4"><div><p className="text-3xl font-semibold">4+</p><p className="mt-1 text-sm text-muted-foreground">Years experience</p></div><div><p className="text-3xl font-semibold">15+</p><p className="mt-1 text-sm text-muted-foreground">Projects shipped</p></div><div><p className="text-3xl font-semibold">5+</p><p className="mt-1 text-sm text-muted-foreground">People led</p></div><div><p className="text-3xl font-semibold">01</p><p className="mt-1 text-sm text-muted-foreground">Reliable partner</p></div></div>
+  </section>
 }

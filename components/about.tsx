@@ -86,7 +86,7 @@ export default function About() {
 
           <motion.div variants={itemVariants} className="mb-16 max-w-3xl">
             <p className="text-xl text-muted-foreground leading-relaxed mb-6">
-              I'm a passionate{" "}
+              I&apos;m a passionate{" "}
               <span className="font-semibold text-foreground">
                 Full-Stack Developer (.NET & Modern Frontend)
               </span>{" "}
