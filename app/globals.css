@@ -1,68 +1,50 @@
 @import "tailwindcss";
 
 :root {
-  --background: #07111f;
-  --foreground: #f4f7fb;
-  --card: #0d1b2d;
-  --card-foreground: #f4f7fb;
-  --popover: #0d1b2d;
-  --popover-foreground: #f4f7fb;
-  --primary: #2dd4bf;
-  --primary-foreground: #06131d;
-  --secondary: #12243a;
-  --secondary-foreground: #dbeafe;
-  --muted: #0d1b2d;
-  --muted-foreground: #8fa4bd;
-  --accent: #8b5cf6;
-  --accent-foreground: #f5f3ff;
-  --destructive: #f87171;
-  --destructive-foreground: #07111f;
-  --border: #1b3550;
-  --input: #1b3550;
-  --ring: #2dd4bf;
-  --radius: 1rem;
+  --background: #0b0b0c;
+  --foreground: #f5f5f2;
+  --card: #121214;
+  --card-foreground: #f5f5f2;
+  --popover: #121214;
+  --popover-foreground: #f5f5f2;
+  --primary: #d6ff3f;
+  --primary-foreground: #11120a;
+  --secondary: #1b1b1e;
+  --secondary-foreground: #f5f5f2;
+  --muted: #161619;
+  --muted-foreground: #9a9a9d;
+  --accent: #6c63ff;
+  --accent-foreground: #ffffff;
+  --destructive: #ef6a6a;
+  --destructive-foreground: #ffffff;
+  --border: #2a2a2d;
+  --input: #2a2a2d;
+  --ring: #d6ff3f;
+  --radius: 0.75rem;
 }
 
 .light,
 html:not(.dark) {
-  --background: #f4f8fb;
-  --foreground: #102033;
+  --background: #f2f2ee;
+  --foreground: #111113;
   --card: #ffffff;
-  --card-foreground: #102033;
+  --card-foreground: #111113;
   --popover: #ffffff;
-  --popover-foreground: #102033;
-  --primary: #0f9f91;
-  --primary-foreground: #ffffff;
-  --secondary: #e6f0f3;
-  --secondary-foreground: #17334a;
-  --muted: #edf3f6;
-  --muted-foreground: #5e7287;
-  --accent: #7250d9;
+  --popover-foreground: #111113;
+  --primary: #1b1d16;
+  --primary-foreground: #e1ff4f;
+  --secondary: #e5e5df;
+  --secondary-foreground: #111113;
+  --muted: #e9e9e4;
+  --muted-foreground: #646466;
+  --accent: #5149d8;
   --accent-foreground: #ffffff;
-  --border: #d5e2e8;
-  --input: #d5e2e8;
-  --ring: #0f9f91;
+  --border: #d4d4cd;
+  --input: #d4d4cd;
+  --ring: #1b1d16;
 }
 
-.dark {
-  --background: #07111f;
-  --foreground: #f4f7fb;
-  --card: #0d1b2d;
-  --card-foreground: #f4f7fb;
-  --popover: #0d1b2d;
-  --popover-foreground: #f4f7fb;
-  --primary: #2dd4bf;
-  --primary-foreground: #06131d;
-  --secondary: #12243a;
-  --secondary-foreground: #dbeafe;
-  --muted: #0d1b2d;
-  --muted-foreground: #8fa4bd;
-  --accent: #8b5cf6;
-  --accent-foreground: #f5f3ff;
-  --border: #1b3550;
-  --input: #1b3550;
-  --ring: #2dd4bf;
-}
+.dark { color-scheme: dark; }
 
 @theme inline {
   --font-sans: "Geist", "Geist Fallback";
@@ -86,21 +68,21 @@ html:not(.dark) {
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) - 6px);
-  --radius-md: calc(var(--radius) - 4px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 8px);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 @layer base {
   * { @apply border-border outline-ring/50; }
   html { @apply bg-background; scroll-behavior: smooth; }
-  body { @apply bg-background text-foreground; }
-  ::selection { @apply bg-primary/25 text-foreground; }
+  body { @apply bg-background text-foreground antialiased; }
+  ::selection { @apply bg-primary text-primary-foreground; }
 }
 
 @layer utilities {
-  .tech-grid { background-image: linear-gradient(color-mix(in srgb, var(--primary) 7%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--primary) 7%, transparent) 1px, transparent 1px); background-size: 42px 42px; }
-  .glass-panel { @apply border border-white/10 bg-white/[0.045] shadow-2xl shadow-slate-950/20 backdrop-blur-xl; }
-  .text-gradient { @apply bg-gradient-to-r from-primary via-cyan-200 to-accent bg-clip-text text-transparent; }
+  .studio-grid { background-image: linear-gradient(color-mix(in srgb, var(--foreground) 6%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--foreground) 6%, transparent) 1px, transparent 1px); background-size: 56px 56px; }
+  .hairline { border-color: color-mix(in srgb, var(--foreground) 14%, transparent); }
+  .display { letter-spacing: -0.075em; line-height: 0.92; }
 }

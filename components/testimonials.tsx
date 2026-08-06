@@ -1,21 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Quote, Star } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 
-const reviews = [
-  { name: "Munir Shabeer", company: "munirshabeer.com", quote: "Adeel was excellent from start to finish. He understood the goal quickly, communicated clearly, and delivered a polished experience that feels fast, professional, and easy to use.", featured: true },
-  { name: "Product partner", company: "Enterprise web platform", quote: "A thoughtful developer who balances product details with dependable engineering. The result was a cleaner interface and a much smoother workflow for our users." },
-  { name: "Startup founder", company: "Digital product launch", quote: "Adeel brought structure to a complex build, kept every milestone moving, and turned our ideas into a responsive product we were proud to share." },
-]
+const reviews = [{ name: "Munir Shabeer", company: "munirshabeer.com", quote: "Adeel was excellent from start to finish. He understood the goal quickly, communicated clearly, and delivered a polished experience that feels fast, professional, and easy to use." }, { name: "Product partner", company: "Enterprise web platform", quote: "A thoughtful developer who balances product details with dependable engineering. The result was a cleaner interface and a much smoother workflow for our users." }, { name: "Startup founder", company: "Digital product launch", quote: "Adeel brought structure to a complex build, kept every milestone moving, and turned our ideas into a responsive product we were proud to share." }]
 
-export default function Testimonials() {
-  return <section id="reviews" className="border-t border-border bg-secondary/30 px-4 py-24 sm:px-6 lg:px-8">
-    <div className="mx-auto max-w-6xl">
-      <div className="mb-12 max-w-2xl"><p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-primary">Client reviews</p><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">Good work should feel <span className="text-primary">obvious.</span></h2><p className="mt-5 text-lg leading-8 text-muted-foreground">A few words from people who value clarity, craft, and dependable delivery.</p></div>
-      <div className="grid gap-5 lg:grid-cols-3">{reviews.map((review, index) => <motion.article key={review.name} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08 }} className={`flex h-full flex-col rounded-xl border border-border bg-card p-6 ${review.featured ? "lg:-translate-y-3 lg:p-8" : ""}`}>
-        <Quote className="mb-7 text-primary" aria-hidden="true" /><p className="flex-1 text-lg leading-8 text-foreground">&quot;{review.quote}&quot;</p><div className="mt-8 flex items-center justify-between gap-4 border-t border-border pt-5"><div><p className="font-semibold">{review.name}</p><p className="text-sm text-muted-foreground">{review.company}</p></div><div className="flex gap-0.5" aria-label="5 out of 5 stars">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="size-4 fill-primary text-primary" aria-hidden="true" />)}</div></div>
-      </motion.article>)}</div>
-    </div>
-  </section>
-}
+export default function Testimonials() { return <section id="reviews" className="border-b border-border px-5 py-24 sm:px-8 lg:px-12"><div className="mx-auto max-w-[1400px]"><div className="mb-14 grid gap-6 lg:grid-cols-[1fr_320px]"><div><p className="mb-5 font-mono text-xs uppercase tracking-[0.24em] text-primary">Client notes</p><h2 className="display max-w-3xl text-5xl font-medium sm:text-7xl">Good partners make <span className="text-muted-foreground">better work.</span></h2></div><p className="self-end text-sm leading-6 text-muted-foreground">A few words from people who value clarity, craft, and dependable delivery.</p></div><div className="grid gap-px border border-border bg-border lg:grid-cols-3">{reviews.map((review, index) => <motion.article key={review.name} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.06 }} className="flex min-h-[300px] flex-col justify-between bg-background p-7 sm:p-9"><div><p className="mb-10 font-mono text-xs text-primary">0{index + 1} / review</p><p className="text-xl leading-8 tracking-tight">&quot;{review.quote}&quot;</p></div><div className="mt-10 flex items-end justify-between border-t border-border pt-5"><div><p className="font-medium">{review.name}</p><p className="mt-1 text-sm text-muted-foreground">{review.company}</p></div><ArrowUpRight className="size-5 text-primary" aria-hidden="true" /></div></motion.article>)}</div></div></section> }
