@@ -13,7 +13,7 @@ import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 
 export default function Home() {
-  const [isDark, setIsDark] = useState(() => typeof window !== "undefined" && localStorage.getItem("darkMode") === "true")
+  const [isDark, setIsDark] = useState(() => typeof window !== "undefined" && localStorage.getItem("darkMode") !== "false")
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDark)
@@ -26,20 +26,5 @@ export default function Home() {
     document.documentElement.classList.toggle("dark", next)
   }
 
-  return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Header isDark={isDark} toggleDarkMode={toggleDarkMode} />
-      <main id="main-content">
-        <Hero />
-        <Projects />
-        <About />
-        <Skills />
-        <WorkProcess />
-        <Experience />
-        <Testimonials />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
-  )
+  return <div className="min-h-screen bg-background text-foreground"><Header isDark={isDark} toggleDarkMode={toggleDarkMode} /><main id="main-content"><Hero /><Skills /><Projects /><WorkProcess /><Experience /><About /><Testimonials /><Contact /></main><Footer /></div>
 }
